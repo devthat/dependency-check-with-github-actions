@@ -2,7 +2,7 @@ name: Dependency Check
 on:
   push:
   schedule:
-    - cron: '*/1 * * * *'
+    - cron: '*/5 * * * *'
 jobs:
   depchecktest:
     runs-on: ubuntu-latest
