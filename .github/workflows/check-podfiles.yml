@@ -7,7 +7,7 @@ on:
 
 jobs:
   call-workflow:
-    uses: devthat/dependency-check-with-github-actions/.github/workflows/dependency-check.yml@master
+    uses: devthat/dependency-check-with-github-actions-workflow/.github/workflows/dependency-check.yml@master
     with:
       args: >
         --scan Podfile.lock
