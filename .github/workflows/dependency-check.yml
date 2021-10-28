@@ -9,18 +9,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Depcheck
-        uses: dependency-check/Dependency-Check_Action@main
-        id: Depcheck
+      - name: Dependency Check
+        uses: 'docker://owasp/dependency-check-action:latest'
         with:
-          project: 'test'
-          path: './Podfile.lock'
-          format: 'HTML'
           args: >
+            --out /github/workspace/reports
             --failOnCVSS 0
             --enableExperimental
-            --scan some-folder/Podfile.lock
+            --format HTML
             --format JSON
+            --noupdate
+            --scan Podfile.lock
+            --scan some-folder/Podfile.lock
       - name: Upload Test results
         if: always()
         uses: actions/upload-artifact@master
