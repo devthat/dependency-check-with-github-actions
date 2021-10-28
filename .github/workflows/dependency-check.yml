@@ -19,6 +19,7 @@ jobs:
           args: >
             --failOnCVSS 0
             --enableExperimental
+            --scan some-folder/Podfile.lock
       - name: Upload Test results
         if: always()
         uses: actions/upload-artifact@master
