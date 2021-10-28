@@ -26,12 +26,16 @@ jobs:
           name: Depcheck report
           path: ${{github.workspace}}/reports
           retention-days: 400
-      - name: ls workspace
-        if: always()
-        run: |
-          ls ${{ github.workspace }}
       - name: pwd and ls
         if: always()
         run: |
           pwd
           ls
+      - name: echo env
+        if: always()
+        run: |
+          echo ${{ github }}
+      - name: ls reports
+        if: always()
+        run: |
+          ls reports/
