@@ -1,0 +1,14 @@
+name: Check podfiles
+
+on:
+  push:
+  # schedule:
+  #   - cron: '*/5 * * * *'
+
+jobs:
+  call-workflow:
+    uses: devthat/dependency-check-with-github-actions/.github/workflows/dependency-check.yml@master
+    with:
+      args: >
+        --scan Podfile.lock
+        --scan some-folder/Podfile.lock

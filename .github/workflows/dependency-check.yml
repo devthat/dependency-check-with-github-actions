@@ -1,8 +1,12 @@
 name: Dependency Check
+
 on:
-  push:
-  # schedule:
-  #   - cron: '*/5 * * * *'
+  workflow_call:
+    inputs:
+      args:
+        required: true
+        type: string
+
 jobs:
   depchecktest:
     runs-on: ubuntu-latest
@@ -19,8 +23,7 @@ jobs:
             --format HTML
             --format JSON
             --noupdate
-            --scan Podfile.lock
-            --scan some-folder/Podfile.lock
+            ${{ inputs.args }}
       - name: Upload Test results
         if: always()
         uses: actions/upload-artifact@master
