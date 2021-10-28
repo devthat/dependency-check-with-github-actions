@@ -11,5 +11,5 @@ jobs:
     with:
       args: >
         --scan Podfile.lock
-        --scan some-folder/Podfile.lock
-        --suppression .dependency-check/suppress.xml
+        --scan .github/workflows/Podfile.lock
+        --suppression .github/workflows/suppress.xml
