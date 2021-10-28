@@ -28,7 +28,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@master
         with:
-          name: Depcheck report
+          name: Dependency Check Report
           path: ${{github.workspace}}/reports
           retention-days: 400
       - name: pwd and ls
