@@ -12,3 +12,4 @@ jobs:
       args: >
         --scan Podfile.lock
         --scan some-folder/Podfile.lock
+        --suppression .dependency-check/suppress.xml
