@@ -20,6 +20,7 @@ jobs:
             --failOnCVSS 0
             --enableExperimental
             --scan some-folder/Podfile.lock
+            --format JSON
       - name: Upload Test results
         if: always()
         uses: actions/upload-artifact@master
@@ -40,3 +41,7 @@ jobs:
         if: always()
         run: |
           ls reports/
+      - name: show json report
+        if: always()
+        run: |
+          cat ${{github.workspace}}/reports/dependency-check-report.json | jq .
