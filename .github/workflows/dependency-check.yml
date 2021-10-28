@@ -1,5 +1,8 @@
 name: Dependency Check
-on: [push]
+on:
+  push:
+  schedule:
+    - cron: '*/1 * * * *'
 jobs:
   depchecktest:
     runs-on: ubuntu-latest
@@ -20,5 +23,6 @@ jobs:
         if: always()
         uses: actions/upload-artifact@master
         with:
-           name: Depcheck report
-           path: ${{github.workspace}}/reports
+          name: Depcheck report
+          path: ${{github.workspace}}/reports
+          retention-days: 400
